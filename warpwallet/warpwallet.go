@@ -31,6 +31,7 @@ import "crypto/sha256"
 import "strings"
 
 import "github.com/btcsuite/btcutil/base58"
+import "github.com/sour-is/koblitz/kelliptic"
 
 import "golang.org/x/crypto/scrypt"
 import "golang.org/x/crypto/pbkdf2"
@@ -95,12 +96,12 @@ func getPrivate(pri []byte) string {
 	copy(checksum, sh[:4])
 	
 	bytes = append(bytes, checksum...)
-	privWif := string(Hex2Base58(bytes))
+	privWif := string(base58.Encode(bytes))
 	return privWif
 }
 
 func getPublic(priv_key []byte) []byte {
-	x, y := S256().ScalarBaseMult(priv_key)
+	x, y := kelliptic.S256().ScalarBaseMult(priv_key)
 	xbytes := x.Bytes()
 	ybytes := y.Bytes()
 
@@ -122,7 +123,7 @@ func getPublicAddress(pub []byte) string {
 	step6 := ShaTwice(step4)
 	checksum := step6[0:4]
 	bbta := append(step4, checksum...)
-	pubAddy := string(Hex2Base58(bbta))
+	pubAddy := string(base58.Encode(bbta))
 
 	return pubAddy
 }

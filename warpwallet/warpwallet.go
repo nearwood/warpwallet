@@ -38,7 +38,16 @@ import "golang.org/x/crypto/pbkdf2"
 import "golang.org/x/crypto/ripemd160"
 
 func main() {
-	passphrase, salt := getInputFromUser(os.Stdout, os.Stdin)
+	passphrase := ""
+	salt := ""
+
+	if len(os.Args) == 3 {
+		passphrase = os.Args[1]
+		salt = os.Args[2]
+	} else {
+		passphrase, salt = getInputFromUser(os.Stdout, os.Stdin)
+	}
+
 	private, address := generate(passphrase, salt)
 	fmt.Printf("Private key: %s\n", private)
 	fmt.Printf("Public address: %s\n", address)

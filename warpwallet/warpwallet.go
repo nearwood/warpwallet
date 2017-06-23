@@ -1,4 +1,4 @@
-// Copyright (c) 2013 Charles M. Ellison III
+//ng.org/x/crypto/scrypt Copyright (c) 2013 Charles M. Ellison III
 // All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without
@@ -30,9 +30,11 @@ import "os"
 import "crypto/sha256"
 import "strings"
 
-import "code.google.com/p/go.crypto/scrypt"
-import "code.google.com/p/go.crypto/pbkdf2"
-import "code.google.com/p/go.crypto/ripemd160"
+import "github.com/btcsuite/btcutil/base58"
+
+import "golang.org/x/crypto/scrypt"
+import "golang.org/x/crypto/pbkdf2"
+import "golang.org/x/crypto/ripemd160"
 
 func main() {
 	passphrase, salt := getInputFromUser(os.Stdout, os.Stdin)

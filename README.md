@@ -9,22 +9,17 @@ This program has been tested under Linux and Windows.
 To install, you'll need to run these from the command line:
 
 ```
-go get code.google.com/p/go.crypto/scrypt
-go get code.google.com/p/go.crypto/pbkdf2
-go get code.google.com/p/go.crypto/ripemd160
+go get github.com/sour-is/koblitz/kelliptic
+go get github.com/btcsuite/btcutil/base58
+go get golang.org/x/crypto/ripemd160
+go get golang.org/x/crypto/pbkdf2
+go get golang.org/x/crypto/scrypt
 ```
-
-Since those repositories use mercurial, you'll also need to:
-
-```
-sudo apt-get install mercurial
-```
-if you don't have it.
 
 Finally, you should be able to do a:
 
 ```
-go get github.com/ellisonch/warpwallet/warpwallet
+go get github.com/nearwood/warpwallet/warpwallet
 ```
 If you add your `$GOPATH/bin` to your path, you should now be able to run `warpwallet`.
 

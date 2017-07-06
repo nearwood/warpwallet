@@ -6,7 +6,13 @@ Except for referencing some hash functions (described below), this package is en
 This program has been tested under Linux and Windows.
 
 ## Install
-To install, you'll need to run these from the command line:
+You should be able to do a:
+
+```
+go get github.com/nearwood/warpwallet/warpwallet
+```
+
+You may need to run these from the command line:
 
 ```
 go get github.com/sour-is/koblitz/kelliptic
@@ -16,11 +22,6 @@ go get golang.org/x/crypto/pbkdf2
 go get golang.org/x/crypto/scrypt
 ```
 
-Finally, you should be able to do a:
-
-```
-go get github.com/nearwood/warpwallet/warpwallet
-```
 If you add your `$GOPATH/bin` to your path, you should now be able to run `warpwallet`.
 
 If the above instructions don't work, download this repo and run `go build` in the `warpwallet` directory.  This will create a `warpwallet` executable that you can then run.

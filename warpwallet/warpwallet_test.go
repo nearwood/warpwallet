@@ -39,7 +39,7 @@ func TestBasic(t *testing.T) {
 
     	pass, salt := getInputFromUser(ioutil.Discard, strings.NewReader(test.passphrase + "\n" + test.salt + "\n"))
 
-    	private, address := generate(pass, salt)
+    	private, address := Generate(pass, salt)
     	if private != test.private {
 			t.Errorf("%s, %s: expected private %s, got %s", test.passphrase, test.salt, test.private, private)
 		}

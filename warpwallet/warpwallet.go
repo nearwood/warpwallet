@@ -48,7 +48,7 @@ func main() {
 		passphrase, salt = getInputFromUser(os.Stdout, os.Stdin)
 	}
 
-	private, address := generate(passphrase, salt)
+	private, address := Generate(passphrase, salt)
 	fmt.Printf("Private key: %s\n", private)
 	fmt.Printf("Public address: %s\n", address)
 }
@@ -86,7 +86,7 @@ func readln(scanner *bufio.Scanner) (string) {
 }
 
 // actually turns a passphrase + salt into a public + private
-func generate(passphrase string, salt string) (string, string) {
+func Generate(passphrase string, salt string) (string, string) {
 	secret := secret([]byte(passphrase), []byte(salt))
 
 	private := getPrivate(secret)
